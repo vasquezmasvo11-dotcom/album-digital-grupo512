@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Album - English Basic Course - Group 5</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        autumn: {
+                            50: '#fdfbf7',
+                            100: '#f7f2e7',
+                            200: '#eee0cc',
+                            300: '#e0c7a5',
+                            400: '#cb9b65',
+                            500: '#be7839',
+                            600: '#a75a2d',
+                            700: '#8b4327',
+                            800: '#713624',
+                            900: '#5c2d20',
+                        },
+                        maple: '#902923',
+                        pumpkin: '#d96b27',
+                        amberGold: '#e39f38',
+                        sage: '#6b7a59',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(224, 199, 165, 0.4);
+        }
+        .dark .glass-card {
+            background: rgba(40, 24, 18, 0.88);
+            border: 1px solid rgba(139, 67, 39, 0.3);
+        }
+        .tab-btn.active {
+            background-color: #d96b27 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 6px -1px rgba(217, 107, 39, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-autumn-50 dark:bg-neutral-950 text-autumn-900 dark:text-autumn-100 font-sans transition-colors duration-300 min-h-screen relative overflow-x-hidden">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glass-card border-b border-autumn-200 dark:border-autumn-800 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pumpkin to-maple flex items-center justify-center text-white shadow-md transform group-hover:rotate-12 transition-transform duration-300">
+                        <i class="fa-solid fa-leaf text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-xl font-bold text-autumn-800 dark:text-autumn-200 tracking-wide block leading-none">English Album</span>
+                        <span class="text-xs text-autumn-600 dark:text-autumn-400 font-medium">Autónoma - Group 5</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <a href="#home" class="px-3 py-2 rounded-lg text-sm font-semibold text-autumn-700 dark:text-autumn-300 hover:bg-autumn-200/50 dark:hover:bg-autumn-800/50 transition">Home</a>
+                    <a href="#week1" class="px-3 py-2 rounded-lg text-sm font-semibold text-autumn-700 dark:text-autumn-300 hover:bg-autumn-200/50 dark:hover:bg-autumn-800/50 transition">Week 1</a>
+                    <a href="#week2" class="px-3 py-2 rounded-lg text-sm font-semibold text-autumn-700 dark:text-autumn-300 hover:bg-autumn-200/50 dark:hover:bg-autumn-800/50 transition">Week 2</a>
+                    <a href="#week3" class="px-3 py-2 rounded-lg text-sm font-semibold text-autumn-700 dark:text-autumn-300 hover:bg-autumn-200/50 dark:hover:bg-autumn-800/50 transition">Week 3</a>
+                    <a href="#week4" class="px-3 py-2 rounded-lg text-sm font-semibold text-autumn-700 dark:text-autumn-300 hover:bg-autumn-200/50 dark:hover:bg-autumn-800/50 transition">Week 4</a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button onclick="toggleDarkMode()" title="Toggle Theme" class="p-2.5 text-autumn-700 dark:text-autumn-300 hover:bg-autumn-200/60 dark:hover:bg-autumn-800/60 rounded-xl transition">
+                        <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-autumn-800 dark:text-autumn-200 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-24">
+
+        <!-- 1. COVER PAGE / HOME SECTION -->
+        <section id="home" class="min-h-[70vh] flex flex-col justify-center items-center text-center relative py-8">
+            <div class="glass-card w-full max-w-4xl p-8 sm:p-12 rounded-3xl shadow-xl relative overflow-hidden border border-autumn-300/60 dark:border-autumn-700/60">
+                <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-pumpkin via-amberGold to-maple"></div>
+
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-autumn-200/80 dark:bg-autumn-800/80 text-autumn-800 dark:text-autumn-200 font-semibold text-xs uppercase tracking-wider mb-6">
+                    <i class="fa-solid fa-graduation-cap text-pumpkin"></i> Universidad Autónoma del Perú
+                </div>
+
+                <h1 class="font-serif text-4xl sm:text-6xl font-extrabold text-autumn-900 dark:text-autumn-50 tracking-tight mb-3">
+                    Digital Album
+                </h1>
+                
+                <p class="text-xl sm:text-2xl font-serif italic text-pumpkin dark:text-amberGold mb-6">
+                    English Basic Course • Group 5
+                </p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-6">
+                    <div class="p-3 rounded-xl bg-white/70 dark:bg-neutral-900/70 border border-autumn-200 dark:border-autumn-800 text-center shadow-sm">
+                        <div class="w-8 h-8 mx-auto mb-1.5 rounded-full bg-pumpkin/20 text-pumpkin flex items-center justify-center font-bold text-xs">1</div>
+                        <h3 class="font-semibold text-xs text-autumn-900 dark:text-autumn-100 truncate">Liliana</h3>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/70 dark:bg-neutral-900/70 border border-autumn-200 dark:border-autumn-800 text-center shadow-sm">
+                        <div class="w-8 h-8 mx-auto mb-1.5 rounded-full bg-sage/20 text-sage flex items-center justify-center font-bold text-xs">2</div>
+                        <h3 class="font-semibold text-xs text-autumn-900 dark:text-autumn-100 truncate">Carlos</h3>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/70 dark:bg-neutral-900/70 border border-autumn-200 dark:border-autumn-800 text-center shadow-sm">
+                        <div class="w-8 h-8 mx-auto mb-1.5 rounded-full bg-amberGold/20 text-amberGold flex items-center justify-center font-bold text-xs">3</div>
+                        <h3 class="font-semibold text-xs text-autumn-900 dark:text-autumn-100 truncate">Ana María</h3>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/70 dark:bg-neutral-900/70 border border-autumn-200 dark:border-autumn-800 text-center shadow-sm">
+                        <div class="w-8 h-8 mx-auto mb-1.5 rounded-full bg-maple/20 text-maple flex items-center justify-center font-bold text-xs">4</div>
+                        <h3 class="font-semibold text-xs text-autumn-900 dark:text-autumn-100 truncate">Massiel</h3>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1 p-3 rounded-xl bg-white/70 dark:bg-neutral-900/70 border border-autumn-200 dark:border-autumn-800 text-center shadow-sm">
+                        <div class="w-8 h-8 mx-auto mb-1.5 rounded-full bg-autumn-600/20 text-autumn-600 flex items-center justify-center font-bold text-xs">5</div>
+                        <h3 class="font-semibold text-xs text-autumn-900 dark:text-autumn-100 truncate">Jhan Franco</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. WEEK 1: MY PROFILE -->
+        <section id="week1" class="pt-8">
+            <div class="border-l-4 border-pumpkin pl-4 mb-8">
+                <span class="text-xs uppercase font-bold text-pumpkin tracking-widest block">Session 1</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold">Week 1 - My Profile</h2>
+                <p class="text-autumn-600 dark:text-autumn-400 text-sm mt-1">Personal profile cards for each group member with details and photos.</p>
+            </div>
+            <div id="w1-profiles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+
+        <!-- 3. WEEK 2: MY FAMILY -->
+        <section id="week2" class="pt-8">
+            <div class="border-l-4 border-sage pl-4 mb-8">
+                <span class="text-xs uppercase font-bold text-sage tracking-widest block">Session 2</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold">Week 2 - My Family</h2>
+                <p class="text-autumn-600 dark:text-autumn-400 text-sm mt-1">Select a student tab to view their family descriptions.</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 border-b border-autumn-200 dark:border-autumn-800 pb-4" id="w2-tabs"></div>
+            <div id="w2-content-container"></div>
+        </section>
+
+        <!-- 4. WEEK 3: MY FRIENDS -->
+        <section id="week3" class="pt-8">
+            <div class="border-l-4 border-amberGold pl-4 mb-8">
+                <span class="text-xs uppercase font-bold text-amberGold tracking-widest block">Session 3</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold">Week 3 - My Friends</h2>
+                <p class="text-autumn-600 dark:text-autumn-400 text-sm mt-1">Select a student tab to view their best friends and study team companions.</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 border-b border-autumn-200 dark:border-autumn-800 pb-4" id="w3-tabs"></div>
+            <div id="w3-content-container"></div>
+        </section>
+
+        <!-- 5. WEEK 4: MY HOUSE & WORKSPACE -->
+        <section id="week4" class="pt-8">
+            <div class="border-l-4 border-maple pl-4 mb-8">
+                <span class="text-xs uppercase font-bold text-maple tracking-widest block">Session 4</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold">Week 4 - My House & Workspace</h2>
+                <p class="text-autumn-600 dark:text-autumn-400 text-sm mt-1">Descriptions of home environments, favorite spaces, and furniture.</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6 border-b border-autumn-200 dark:border-autumn-800 pb-4" id="w4-tabs"></div>
+            <div id="w4-content-container"></div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 border-t border-autumn-200 dark:border-autumn-800 bg-autumn-100/60 dark:bg-neutral-900 py-8 text-center text-xs text-autumn-600 dark:text-autumn-400">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-serif font-bold text-sm text-autumn-900 dark:text-autumn-200">Digital Album - Universidad Autónoma del Perú</p>
+            <p>English Basic Course • Autonomous Group 5</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE DATOS CON TEXTO EXACTO Y RUTAS DE 20 IMÁGENES -->
+    <script>
+        const membersData = [
+            {
+                id: "liliana",
+                name: "Liliana",
+                w1: {
+                    photo: "img/liliana-profile.jpg",
+                    title: "Liliana's Profile",
+                    details: [
+                        "I am a 44-year-old freelancer and psychology student living in the district of Ancón, Lima.",
+                        "I am also a proud mother of two young children who inspire me every day.",
+                        "I run a business where I design and sell personalized items.",
+                        "I am interested in traveling, and listening to music.",
+                        "I always strive to balance continuous learning, creativity, and family life."
+                    ]
+                },
+                w2: {
+                    photo: "img/liliana-family.jpg",
+                    title: "Liliana's Family",
+                    details: [
+                        "My Parents: My father's name is Jose. He is 63 years old and a very hard-working man. My mother's name is Ana. She is 63 years old too, and she is a physical therapist. They are wonderful parents, and they like cooking delicious meals to get the family together on Sundays.",
+                        "My Own Family: I am married, and my husband is a computer technician. He is very intelligent and kind. We have two wonderful children. My oldest son has curly hair and wears glasses, and my youngest son is a student. On Sundays, we love to get the family together with my parents, brothers and sisters in law to have a special lunch and share quality time."
+                    ]
+                },
+                w3: {
+                    photo: "img/liliana-friends.jpg",
+                    title: "Liliana's Friends",
+                    details: [
+                        "My Best Friend: My best friend's name is Rocío. She is 44 years old as me, and I know her since we were in kindergarten. She is a loving kindergarten teacher, and she also has two children: a young man and a little boy. Rocío is very friendly, funny, and trustworthy. We enjoy spending time together on weekends at her house or my house.",
+                        "Group 5 Team: In Group 5, I study with Massiel, Ana, Jhan and Carlos. We are a good team. Everyone is very responsible, creative, and supportive. We help each other prepare for our English lessons, and we always practice speaking together to get excellent grades."
+                    ]
+                },
+                w4: {
+                    photo: "img/liliana-house.jpg",
+                    title: "Liliana's House & Favorite Area",
+                    details: [
+                        "My Apartment: I live in a small apartment. In my house, there are three bedrooms and one bathroom. There is a comfortable living and dining room, a clean kitchen, and a small office space with a desk to do my homework. Finally, on the rooftop, there is a convenient drying area to hang and dry our clothes.",
+                        "My Favorite Space: The part of the house that I like the most is the living room. In this space, there is a big sofa in front of the television, and there are five comfortable cushions on the sofa. There is a beautiful lamp next to the television, and my dog's bed is to the right of the TV. Near the wall, there is a cabinet where we keep wine glasses and cups. There are music speakers, a comfortable armchair, and family photos on the wall next to a big window."
+                    ]
+                }
+            },
+            {
+                id: "carlos",
+                name: "Carlos",
+                w1: {
+                    photo: "img/carlos-profile.jpg",
+                    title: "Carlos's Profile",
+                    details: [
+                        "Hello! My name is Carlos, and I am 23 years old.",
+                        "I live in Ventanilla, Peru, and I study Nursing.",
+                        "I am interested in sports and music, which are important parts of my free time.",
+                        "I enjoy discovering new things and developing my knowledge.",
+                        "My goal is to continue learning and growing both personally and academically."
+                    ]
+                },
+                w2: {
+                    photo: "img/carlos-family.jpg",
+                    title: "Carlos's Family",
+                    details: [
+                        "My Parents: My father's name is Wiler. He is 49 years old, and he works as a nurse. He is kind, friendly, and cheerful. My mother's name is Luciana, and she is 50 years old. She is a loving, caring, and supportive person. I appreciate both of my parents because they are important to me.",
+                        "Living at Home: I live with my father, my mother, and my brother. I love my family because we share our home and our daily experiences together. It is very special for us to spend valuable quality time together at home every day."
+                    ]
+                },
+                w3: {
+                    photo: "img/carlos-friends.jpg",
+                    title: "Carlos's Friends",
+                    details: [
+                        "My Best Friend: My best friend's name is Fernando. He is 48 years old. He is a cool, responsible, hardworking, kind, and funny person. He is friendly and enjoys sharing good moments with others. I appreciate his friendship because he makes people feel comfortable and brings happiness to those around him.",
+                        "English Class Team: In my English class, I study with my group. We are a good team. Everyone is very responsible, creative, and supportive. We help each other prepare for our English lessons, and we always practice speaking together to get excellent grades."
+                    ]
+                },
+                w4: {
+                    photo: "img/carlos-house.jpg",
+                    title: "Carlos's House & Living Room",
+                    details: [
+                        "My Home: I live in a comfortable house with different areas for relaxing, preparing meals, and resting. There is a bedroom, a living room, and a kitchen. I believe a home is more than a physical space because it is a place to spend valuable time together.",
+                        "Favorite Space: The living room is a very cozy place in my house. In this space, there is a comfortable sofa and a television. In the bedroom, there is a bed and a wardrobe. In the kitchen, there is a refrigerator, a table, and other useful appliances."
+                    ]
+                }
+            },
+            {
+                id: "anamaria",
+                name: "Ana María",
+                w1: {
+                    photo: "img/anamaria-profile.jpg",
+                    title: "Ana María's Profile",
+                    details: [
+                        "I am an 18-year-old nursing student living in Lima, Peru.",
+                        "I am currently in my second semester at Universidad Autónoma del Perú.",
+                        "I consider myself a responsible, kind, and respectful person.",
+                        "I enjoy studying nursing because I like helping and caring for people.",
+                        "I always strive to balance my studies, personal growth, and family life."
+                    ]
+                },
+                w2: {
+                    photo: "img/anamaria-family.jpg",
+                    title: "Ana María's Family",
+                    details: [
+                        "My Mother: My mother's name is Seberina. She is 51 years old, and she is from Trujillo, Peru. She is an important person in my life. I love my mother, and I appreciate everything she does for me.",
+                        "Personal Journey: I am a nursing student at Universidad Autónoma del Perú. I am 18 years old, and I live in Lima, Peru. I am responsible, kind, and respectful. I enjoy spending time with my family and studying nursing to help others."
+                    ]
+                },
+                w3: {
+                    photo: "img/anamaria-friends.jpg",
+                    title: "Ana María's Friends",
+                    details: [
+                        "My Best Friend: My best friend's name is Yadira. She is a kind, friendly, and funny person. We enjoy talking and spending time together. She is an important person in my life, and I appreciate our friendship.",
+                        "University Classmates: At university, I study nursing with my classmates. We are a good team, and we help each other with our assignments. We study together and practice for our English lessons to get good grades."
+                    ]
+                },
+                w4: {
+                    photo: "img/anamaria-house.jpg",
+                    title: "Ana María's House & Bedroom",
+                    details: [
+                        "My House: I live in Lima, Peru. My home is a special place for me because I can relax and spend time with my family. It is also a place where I can study and do my homework.",
+                        "Favorite Space: The part of my house that I like the most is my bedroom. It is a comfortable place where I can rest, listen to music, and study. I like my bedroom because it gives me peace and privacy."
+                    ]
+                }
+            },
+            {
+                id: "massiel",
+                name: "Massiel",
+                w1: {
+                    photo: "img/massiel-profile.jpg",
+                    title: "Massiel's Profile",
+                    details: [
+                        "Hello! My name is Massiel Xiomara Vasquez Montalvo, and I am 20 years old.",
+                        "I live in Peru, and I study Systems Engineering.",
+                        "I am interested in listening to all kinds of music in my free time.",
+                        "I always strive to balance continuous learning, creativity, and student life.",
+                        "My goal is to continue learning and growing both personally and academically."
+                    ]
+                },
+                w2: {
+                    photo: "img/massiel-family.jpg",
+                    title: "Massiel's Family",
+                    details: [
+                        "My Family & Grandparents: My father's name is Jorge Eduardo, and he is a driver. My mother's name is Ana Paola, and she is a housewife. They are wonderful parents who take care of our home. My grandfather's name is Emiliano Vasquez, and he loves family outings. My grandmother's name is Matilde Piña, and she loves to spoil us.",
+                        "Family Bond: I am very close to my family, and we love to share quality time together. On weekends, we enjoy spending time with my parents and grandparents to have a special lunch and share daily experiences."
+                    ]
+                },
+                w3: {
+                    photo: "img/massiel-friends.jpg",
+                    title: "Massiel's Friends",
+                    details: [
+                        "My Best Friends: My best friends are Erick and Noemi. Erick has a great sense of humor; he is kind, friendly, and a bit sarcastic, but an amazing friend! Noemi is a very good listener, supportive, and trustworthy. We enjoy spending quality time together.",
+                        "Group 5 Teamwork: In my English class, I study with my group. We are a good team. Everyone is very responsible, creative, and supportive. We help each other prepare for our English lessons to get excellent grades."
+                    ]
+                },
+                w4: {
+                    photo: "img/massiel-house.jpg",
+                    title: "Massiel's House & Living Room",
+                    details: [
+                        "My Home: I live in a small but very cozy house. In my house, there are bedrooms, a bathroom, a clean kitchen, and a living room. There is also a small study area with a desk to do my homework and study Systems Engineering.",
+                        "Favorite Space: The part of the house that I like the most is the living room. In this space, there is a comfortable sofa in front of the TV. Near the wall, there are music speakers to listen to my favorite songs, and beautiful family photos on the wall."
+                    ]
+                }
+            },
+            {
+                id: "jhan",
+                name: "Jhan Franco",
+                w1: {
+                    photo: "img/jhan-profile.jpg",
+                    title: "Jhan Franco's Profile",
+                    details: [
+                        "Hi, my name is Jhan Franco.",
+                        "I am an enthusiastic university student.",
+                        "I like technology, sports, and collaborative team assignments.",
+                        "I always strive to learn new skills and share ideas with my group."
+                    ]
+                },
+                w2: {
+                    photo: "img/jhan-family.jpg",
+                    title: "Jhan Franco's Family",
+                    details: [
+                        "Sunday Lunch: This photo shows our family Sunday lunch.",
+                        "We love sharing meal times and catching up on everyone's week. My family is my biggest motivation."
+                    ]
+                },
+                w3: {
+                    photo: "img/jhan-friends.jpg",
+                    title: "Jhan Franco's Friends",
+                    details: [
+                        "Cousins & Friends: Hanging out with my cousins and close friends.",
+                        "We share hobbies like gaming and outdoor sports. They always bring energy and fun to my life."
+                    ]
+                },
+                w4: {
+                    photo: "img/jhan-house.jpg",
+                    title: "Jhan Franco's Living Room",
+                    details: [
+                        "Living Room: This is the main living room in my house.",
+                        "It is a comfortable space where my family relaxes together to watch movies and celebrate events."
+                    ]
+                }
+            }
+        ];
+
+        let activeTabs = { w2: 0, w3: 0, w4: 0 };
+
+        function renderWeek1() {
+            const container = document.getElementById("w1-profiles-container");
+            container.innerHTML = membersData.map(m => `
+                <div class="glass-card rounded-2xl overflow-hidden shadow-md border border-autumn-200/80 dark:border-autumn-800 flex flex-col justify-between">
+                    <div>
+                        <div class="h-64 bg-autumn-200/50 dark:bg-neutral-900 overflow-hidden relative">
+                            <img src="${m.w1.photo}" alt="${m.name}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';" />
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-serif font-bold text-xl text-autumn-900 dark:text-autumn-100 mb-2">${m.name}</h3>
+                            <ul class="space-y-2 text-xs text-autumn-700 dark:text-autumn-300">
+                                ${m.w1.details.map(d => `<li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pumpkin mt-0.5 shrink-0"></i> <span>${d}</span></li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTabbedSection(weekKey, containerId, tabsId) {
+            const tabsContainer = document.getElementById(tabsId);
+            const contentContainer = document.getElementById(containerId);
+            const activeIndex = activeTabs[weekKey];
+
+            tabsContainer.innerHTML = membersData.map((m, idx) => `
+                <button onclick="switchTab('${weekKey}', ${idx})" class="tab-btn ${idx === activeIndex ? 'active' : ''} px-4 py-2 rounded-xl text-xs font-bold transition border border-autumn-300 dark:border-autumn-700 bg-autumn-100/50 dark:bg-neutral-800">
+                    ${m.name}
+                </button>
+            `).join('');
+
+            const currentMember = membersData[activeIndex];
+            const data = currentMember[weekKey];
+
+            contentContainer.innerHTML = `
+                <div class="glass-card rounded-2xl p-6 border border-autumn-300/60 dark:border-autumn-700/60 shadow-lg grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-6 h-80 rounded-xl overflow-hidden bg-autumn-200/40 dark:bg-neutral-900">
+                        <img src="${data.photo}" alt="${data.title}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80';" />
+                    </div>
+                    <div class="md:col-span-6 space-y-4">
+                        <span class="text-xs font-bold text-pumpkin uppercase tracking-widest">${currentMember.name}</span>
+                        <h3 class="font-serif text-2xl font-bold text-autumn-900 dark:text-autumn-100">${data.title}</h3>
+                        <ul class="space-y-3 text-sm text-autumn-700 dark:text-autumn-300">
+                            ${data.details.map(d => `<li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-sage mt-1 shrink-0"></i> <span>${d}</span></li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        function switchTab(weekKey, idx) {
+            activeTabs[weekKey] = idx;
+            renderTabbedSection(weekKey, `${weekKey}-content-container`, `${weekKey}-tabs`);
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const icon = document.getElementById('theme-icon');
+            if (document.documentElement.classList.contains('dark')) {
+                icon.className = 'fa-solid fa-sun';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderWeek1();
+            renderTabbedSection('w2', 'w2-content-container', 'w2-tabs');
+            renderTabbedSection('w3', 'w3-content-container', 'w3-tabs');
+            renderTabbedSection('w4', 'w4-content-container', 'w4-tabs');
+        });
+    </script>
+</body>
+</html>
